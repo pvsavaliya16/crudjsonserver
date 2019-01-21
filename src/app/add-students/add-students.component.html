@@ -2,8 +2,73 @@
   <div class="jumbotron h-50">
     <h2> Add User</h2>  
 </div>
-<div class="container float-md-left">
+<div class="container-fluid justify-content-center">
 
-  
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group row">
+      <label for="eid" class="col-form-label col-sm-2">Enrollment:</label> 
+      <div class="col-sm-10"> 
+        <input type="number" formControlName="eid" class="form-control w-50" placeholder="Enrollment" name="eid">
+        <div *ngIf="studentForm.get('eid').touched && studentForm.get('eid').invalid" class="alert alert-danger w-50 h-20">
+          <div *ngIf="studentForm.get('eid').errors.required" >Enrollment is required!!</div>
+          <div *ngIf="studentForm.get('eid').errors.pattern">Please enter valid Enrollment!!</div>
+        </div> 
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label for="firstName" class="col-form-label col-sm-2">First name:</label> 
+      <div class="col-sm-10">
+        <input type="text" formControlName="firstName" class="form-control w-50" placeholder="First Name" name="firstName">
+        <div *ngIf="studentForm.get('firstName').touched && studentForm.get('firstName').invalid" class="alert alert-danger w-50 h-20">
+          <div *ngIf="studentForm.get('firstName').errors.required" >First name is required!!</div>
+          <div *ngIf="studentForm.get('firstName').errors.pattern">Please enter valid first name!!</div>
+       </div> 
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="lastName" class="col-form-label col-sm-2">Last name:</label> 
+      <div class="col-sm-10">
+        <input type="text" formControlName="lastName" class="form-control w-50" placeholder="Last Name" name="lastName">
+        <div *ngIf="studentForm.get('lastName').touched && studentForm.get('lastName').invalid" class="alert alert-danger w-50 h-20">
+          <div *ngIf="studentForm.get('lastName').errors.required" >Last name is required!!</div>
+          <div *ngIf="studentForm.get('lastName').errors.pattern">Please enter valid last name!!</div>
+        </div>
+      </div> 
+    </div>
+
+    <div class="form-group row">
+      <label for="sem" class="col-form-label col-sm-2">Semester:</label> 
+      <div class="col-sm-10">
+        <select name="sem" id="sem" class="form-control w-50" formControlName="sem" required>
+          <option *ngFor="let sem of sems" [value]="sem">{{sem}}</option>
+        </select>
+        <div *ngIf="studentForm.get('sem').touched && studentForm.get('sem').invalid" class="alert alert-danger w-50 h-20">
+          Please select semester!!
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="branch" class="col-form-label col-sm-2">Branch:</label> 
+      <div class="col-sm-10">
+       <select name="branch" id="branch" class="form-control w-50 selector" formControlName="branch" required>
+          <option *ngFor="let branch of branches" [value]="branch">{{branch}}</option>
+        </select>
+        <div *ngIf="studentForm.get('branch').touched && studentForm.get('branch').invalid" class="alert alert-danger w-50 h-15">
+         Please select branch!!
+        </div>
+      </div>
+    </div>
+    <div class="form-actions col-md-10">
+      <button [disabled]="!studentForm.valid" type="submit" class="btn btn-primary">Submit</button>
+      &nbsp;&nbsp;
+      <button type="reset" class="btn btn-primary">Reset</button>
+    </div>
+
+  </form>
 
 </div>

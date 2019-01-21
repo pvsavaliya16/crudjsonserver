@@ -1,32 +1,36 @@
 {
-    "students": [
-      {
-        "eid": 150470107038,
-        "firstName": "Sebastian",
-        "lastName": "Eschweiler",
-        "sem": 7,
-        "branch": "CE"
-      },
-      {
-        "id": 250470107038,
-        "firstName": "Steve",
-        "lastName": "Palmer",
-        "branch": "CE",
-        "sem": 7
-      },
-      {
-        "id": 250470107038,
-        "firstName": "Steve",
-        "lastName": "Palmer",
-        "branch": "CE",
-        "sem": 7
-      },
-      {
-        "id": 250470107038,
-        "firstName": "Steve",
-        "lastName": "Palmer",
-        "branch": "CE",
-        "sem": 7
-      }
-    ]
-  }
+  "students": [
+    {
+      "id": 4,
+      "eid": 150470107056,
+      "firstName": "Tony",
+      "lastName": "Stark",
+      "branch": "Electronics & Communication Engineering",
+      "sem": 7
+    },
+    {
+      "id": 5,
+      "eid": 150470107022,
+      "firstName": "Bruce",
+      "lastName": "Banner",
+      "branch": "Electronics & Communication Engineering",
+      "sem": 7
+    },
+    {
+      "eid": 150470107038,
+      "firstName": "Parth",
+      "lastName": "Savaliya",
+      "sem": "8",
+      "branch": "Automobile Engineering",
+      "id": 6
+    },
+    {
+      "eid": 150470107032,
+      "firstName": "Nirali",
+      "lastName": "Makwana",
+      "sem": "8",
+      "branch": "Computer Engineering",
+      "id": 7
+    }
+  ]
+}

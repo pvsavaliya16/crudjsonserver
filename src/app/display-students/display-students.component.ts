@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../student.service';
 
 @Component({
   selector: 'app-display-students',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayStudentsComponent implements OnInit {
 
-  constructor() { }
+  students = [];
+  constructor(private studentService: StudentService) { }
 
   ngOnInit() {
+    this.studentService.getStudents().subscribe(data => this.students = data);
   }
 
+  delStudent(student) {
+    this.studentService.deleteItem(student.id).subscribe(data => console.log('success'));
+  }
 }
