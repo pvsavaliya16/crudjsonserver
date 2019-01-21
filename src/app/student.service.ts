@@ -20,6 +20,6 @@ export class StudentService {
   }
 
   deleteItem(id): Observable<void>{
-  return this.http.delete<void>(`${this._url}/${id}`);
+    return this.http.delete<void>(`${this._url}/${id}`);
   }
 }
