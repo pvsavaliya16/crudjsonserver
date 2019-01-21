@@ -1,0 +1,32 @@
+{
+    "students": [
+      {
+        "eid": 150470107038,
+        "firstName": "Sebastian",
+        "lastName": "Eschweiler",
+        "sem": 7,
+        "branch": "CE"
+      },
+      {
+        "id": 250470107038,
+        "firstName": "Steve",
+        "lastName": "Palmer",
+        "branch": "CE",
+        "sem": 7
+      },
+      {
+        "id": 250470107038,
+        "firstName": "Steve",
+        "lastName": "Palmer",
+        "branch": "CE",
+        "sem": 7
+      },
+      {
+        "id": 250470107038,
+        "firstName": "Steve",
+        "lastName": "Palmer",
+        "branch": "CE",
+        "sem": 7
+      }
+    ]
+  }
