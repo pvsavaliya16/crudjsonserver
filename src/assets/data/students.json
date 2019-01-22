@@ -1,36 +1,20 @@
 {
   "students": [
     {
-      "id": 4,
-      "eid": 150470107056,
-      "firstName": "Tony",
-      "lastName": "Stark",
-      "branch": "Electronics & Communication Engineering",
-      "sem": 7
-    },
-    {
-      "id": 5,
-      "eid": 150470107022,
-      "firstName": "Bruce",
-      "lastName": "Banner",
-      "branch": "Electronics & Communication Engineering",
-      "sem": 7
-    },
-    {
-      "eid": 150470107038,
-      "firstName": "Parth",
+      "eid": "",
+      "firstName": "Savaliya",
       "lastName": "Savaliya",
       "sem": "8",
-      "branch": "Automobile Engineering",
-      "id": 6
+      "branch": "Electrical Engineering",
+      "id": 18
     },
     {
-      "eid": 150470107032,
-      "firstName": "Nirali",
-      "lastName": "Makwana",
+      "eid": 150470107026,
+      "firstName": "Tony",
+      "lastName": "Stark",
       "sem": "8",
-      "branch": "Computer Engineering",
-      "id": 7
+      "branch": "Automobile Engineering",
+      "id": 19
     }
   ]
 }

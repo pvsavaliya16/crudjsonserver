@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
 
+  
+
   private _url = 'http://localhost:3000/students';
   constructor(private http: HttpClient) { }
 
@@ -22,4 +24,10 @@ export class StudentService {
   deleteItem(id): Observable<void>{
     return this.http.delete<void>(`${this._url}/${id}`);
   }
+
+  updateItem(id, updatedValue): Observable<void> {
+    console.log(updatedValue);
+    return this.http.put<void>(`${this._url}/${id}`, updatedValue);
+  }
+  
 }

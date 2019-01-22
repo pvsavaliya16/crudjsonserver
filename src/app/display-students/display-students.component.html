@@ -1,5 +1,7 @@
 <h1>All Students</h1>
-
+<nav class="navbar">
+  <input type="search" class="form-control w-25 h-50 d-flex justify-content-end" name="search" [(ngModel)]="filter" placeholder="Search students">
+</nav>
 <table class="table">
   <thead>
     <tr>
@@ -11,7 +13,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let student of students | paginate: {itemsPerPage:3, currentPage: p }">
+    <tr *ngFor="let student of students | paginate: {itemsPerPage:3, currentPage: p } | filter:filter">
       <td>{{student.eid}}</td>
       <td>{{student.firstName + " " + student.lastName}}</td>
       <td>{{student.sem}}</td>
@@ -19,9 +21,79 @@
       <td>
         <button class="btn btn-primary" (click)=delStudent(student)>Delete</button>
         &nbsp; &nbsp;
-        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-primary" (click)=updateStudent(student)>Edit</button>
       </td>
     </tr>
   </tbody>
   <pagination-controls class="justify-content-center" (pageChange)="p = $event"></pagination-controls>
 </table>
+
+<div *ngIf="editStudent" class="container">
+  <form [formGroup]="updateForm" class="form-group">
+
+      <div class="form-group row">
+          <label for="eid" class="col-form-label col-sm-2">Enrollment:</label> 
+          <div class="col-sm-10"> 
+            <input type="number" formControlName="eid" class="form-control w-50" placeholder="Enrollment" name="eid" [value]="thisStudent.eid">
+          </div>
+          <div *ngIf="updateForm.get('eid').touched && updateForm.get('eid').invalid" class="alert alert-danger w-50 h-20">
+              <div *ngIf="updateForm.get('eid').errors.required" >Enrollment is required!!</div>
+              <div *ngIf="updateForm.get('eid').errors.pattern">Please enter valid Enrollment!!</div>
+            </div> 
+        </div>
+
+      <div class="form-group row">
+        <label for="firstName" class="col-form-label col-sm-2">First name:</label> 
+        <div class="col-sm-10">
+          <input type="text" formControlName="firstName" class="form-control w-50" placeholder="First Name" name="firstName">
+          <div *ngIf="updateForm.get('firstName').touched && updateForm.get('firstName').invalid" class="alert alert-danger w-50 h-20">
+            <div *ngIf="updateForm.get('firstName').errors.required" >First name is required!!</div>
+            <div *ngIf="updateForm.get('firstName').errors.pattern">Please enter valid first name!!</div>
+        </div> 
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="lastName" class="col-form-label col-sm-2">Last name:</label> 
+        <div class="col-sm-10">
+          <input type="text" formControlName="lastName" class="form-control w-50" placeholder="Last Name" name="lastName">
+          <div *ngIf="updateForm.get('lastName').touched && updateForm.get('lastName').invalid" class="alert alert-danger w-50 h-20">
+            <div *ngIf="updateForm.get('lastName').errors.required" >Last name is required!!</div>
+            <div *ngIf="updateForm.get('lastName').errors.pattern">Please enter valid last name!!</div>
+          </div>
+        </div> 
+      </div>
+
+      <div class="form-group row">
+        <label for="sem" class="col-form-label col-sm-2">Semester:</label> 
+        <div class="col-sm-10">
+          <select name="sem" id="sem" class="form-control w-50" formControlName="sem" required>
+            <option *ngFor="let sem of sems" [value]="sem">{{sem}}</option>
+          </select>
+          <div *ngIf="updateForm.get('sem').touched && updateForm.get('sem').invalid" class="alert alert-danger w-50 h-20">
+            Please select semester!!
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="branch" class="col-form-label col-sm-2">Branch:</label> 
+        <div class="col-sm-10">
+        <select name="branch" id="branch" class="form-control w-50 selector" formControlName="branch" required>
+            <option *ngFor="let branch of branches" [value]="branch">{{branch}}</option>
+          </select>
+          <div *ngIf="updateForm.get('branch').touched && updateForm.get('branch').invalid" class="alert alert-danger w-50 h-15">
+          Please select branch!!
+          </div>
+        </div>
+      </div>
+      <div class="form-actions col-md-10">
+        <button type="submit" class="btn btn-primary" [disabled]="!updateForm.valid" (click)=updStudent(updateForm) >Update</button>
+        &nbsp;&nbsp;
+        <button class="btn btn-primary" type="reset">Reset</button>
+        &nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="cancelForm()">Cancel</button>
+      </div>
+
+  </form>
+</div>
